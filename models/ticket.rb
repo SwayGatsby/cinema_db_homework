@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 require_relative('customer.rb')
 require_relative('film.rb')
 
-class ticket
+class Ticket
 
   attr_reader(:customer_id, :film_id)
 
