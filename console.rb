@@ -47,10 +47,12 @@ film_3 = Film.new({
 
 film_3.save()
 
-# all_customers = Customer.all()
-# for customer in all_customers
-#   puts customer.name
-# end
+all_customers = Customer.all()
+for customer in all_customers
+  puts customer.name
+end
+
+film_2.delete()
 
 all_films = Film.all()
 for film in all_films
