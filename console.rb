@@ -51,7 +51,7 @@ for customer in all_customers
   puts customer.name
 end
 
-#ßfilm_2.delete()
+#film_2.delete()
 
 all_films = Film.all()
 for film in all_films

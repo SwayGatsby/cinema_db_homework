@@ -26,6 +26,29 @@ class Ticket
     @id = ticket[0]['id'].to_i()
   end
 
+  def self.all()
+    sql = "SELECT * FROM tickets"
+    values = []
+    tickets = SqlRunner.run(sql, values)
+    result = tickets.map{|ticket| Ticket.new(ticket)}
+    return result
+  end
+
+def update()
+  sql = "UPDATE tickets
+  SET (
+  customer_id,
+  film_id
+  ) =
+  ($1, $2)
+  WHERE id = $3
+  "
+  values = [@customer_id, @film_id]
+  SqlRunner.run(sql, values)
+end
+
+  
+
 
 
 end
