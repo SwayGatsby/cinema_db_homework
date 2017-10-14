@@ -25,5 +25,16 @@ attr_accessor(:price)
     @id = film[0]['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM films"
+    values = []
+    films = SqlRunner.run(sql,values)
+    result = films.map{|film| Film.new(film)}
+    return result
+  end
+
+
+
+  
 
 end
