@@ -4,11 +4,26 @@ require_relative('film.rb')
 
 class Ticket
 
-  attr_reader(:customer_id, :film_id)
+  attr_reader(:customer_id, :film_id, :id)
 
   def initialize(options)
+    @id = options['id'].to_i()
     @customer_id = options['customer_id'].to_i()
     @film_id = options['film_id'].to_i()
+  end
+
+  def save()
+    sql = "INSERT into tickets
+    (
+      customer_id,
+      film_id
+    )
+    VALUES
+    ($1, $2)
+    RETURNING *"
+    values = [@customer_id, @film_id]
+    ticket = SqlRunner.run(sql, values)
+    @id = ticket[0]['id'].to_i()
   end
 
 
