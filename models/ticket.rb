@@ -34,21 +34,31 @@ class Ticket
     return result
   end
 
-def update()
-  sql = "UPDATE tickets
-  SET (
-  customer_id,
-  film_id
-  ) =
-  ($1, $2)
-  WHERE id = $3
-  "
-  values = [@customer_id, @film_id]
-  SqlRunner.run(sql, values)
-end
+  def update()
+    sql = "UPDATE tickets
+    SET (
+    customer_id,
+    film_id
+    ) =
+    ($1, $2)
+    WHERE id = $3
+    "
+    values = [@customer_id, @film_id]
+    SqlRunner.run(sql, values)
+  end
 
-  
+  def delete()
+    sql = "DELETE FROM tickets
+    WHERE ID = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
+  def self.delete_all()
+    sql = "DELTE FROM tickets"
+    values = []
+    SqlRunner.run(sql,values)
+  end
 
 
 end
