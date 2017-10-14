@@ -1,31 +1,27 @@
 require_relative('../db/sql_runner.rb')
 
-class User
+class Customer
 
   attr_reader(:id)
-  attr_accessor(:cash, :name)
+  attr_accessor(:funds, :name)
 
   def initialize(options)
     @id = options['id'].to_i()
     @name = options['name']
-    @cash = options['cash'].to_i()
+    @funds = options['funds'].to_i()
   end
 
   def save()
     sql = "INSERT INTO customers
     (
       name,
-      cash
+      funds
     )
-    VALUES (
-      $1, $2
-    )
-    RETURNING id"
-    values = [@name, @cash]
-    location = SqlRunner.run(sql, values)
-    @id = customer['id'].to_i
+    VALUES ($1, $2)
+    RETURNING *"
+    values = [@name, @funds]
+    customer = SqlRunner.run(sql, values)
+    @id = customer[0]['id'].to_i
   end
-
-
 
 end
