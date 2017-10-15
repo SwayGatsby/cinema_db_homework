@@ -75,9 +75,9 @@ ticket_2.save()
 puts "PRINTING OUT: customer_1.films() ..."
 customer_films = customer_1.films()
 for film in customer_films
-  puts "Film ID: " + film.id.to_s()
-  puts "Film Title: " + film.title.to_s()
-  puts "Film Price: " + film.price.to_s()
+  puts "Film ID: #{film.id.to_s()}"
+  puts "Film Title: #{film.title}"
+  puts "Film Price: #{film.price.to_s()}"
 end
 
 
@@ -88,6 +88,9 @@ for customer in film_customers
   puts "Customer Name: #{customer.name}"
   puts "Customer Funds: #{customer.funds.to_i()}"
 end
+
+
+puts "Customer's updated funds: #{customer_1.purchase_ticket_for(film_2)}"
 
 binding.pry
 nil

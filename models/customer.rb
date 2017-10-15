@@ -60,7 +60,7 @@ class Customer
 
   def films()
     # sql = "SELECT films.*, tickets.*
-    # Not returning ticket info since converting to Film objects and ticket info would bork it.
+    # Not returning ticket info since converting to Film objects as the adtl ticket info would bork it. See below.
     sql = "SELECT films.*
     FROM films
     INNER JOIN tickets
@@ -76,6 +76,8 @@ class Customer
   end
 
 
-
+  def purchase_ticket_for(film)
+    @funds -= film.price
+  end
 
 end

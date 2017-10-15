@@ -24,6 +24,7 @@ class Ticket
     values = [@customer_id, @film_id]
     ticket = SqlRunner.run(sql, values)
     @id = ticket[0]['id'].to_i()
+
   end
 
   def self.all()
@@ -59,6 +60,7 @@ class Ticket
     values = []
     SqlRunner.run(sql,values)
   end
+
 
 
 end
