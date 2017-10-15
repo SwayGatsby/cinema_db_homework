@@ -72,6 +72,11 @@ ticket_2 = Ticket.new({
 
 ticket_2.save()
 
+puts "PRINTING OUT: customer_1.films() ..."
+customer_films = customer_1.films()
+for film in customer_films
+  puts film
+end
 
 binding.pry
 nil
