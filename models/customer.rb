@@ -59,7 +59,9 @@ class Customer
   end
 
   def films()
-    sql = "SELECT films.*, tickets.*
+    # sql = "SELECT films.*, tickets.*
+    # Not returning ticket info since converting to Film objects and ticket info would bork it.
+    sql = "SELECT films.*
     FROM films
     INNER JOIN tickets
     ON tickets.film_id = films.id
@@ -68,8 +70,11 @@ class Customer
     results = SqlRunner.run(sql, values)
     # results.map{|result| puts result}
     # return results.map{|result| "#{result['name']}: #{result['title']}"}
-    return results.map{|result| "#{result['customer_id']}: #{result['title']}"}
+    # Was doing: {"id"=>"39", "title"=>"Eternal Sunshine of the Spotless Mind", "price"=>"3", "customer_id"=>"85", "film_id"=>"94"}
+    # Now doing: {"id"=>"106", "title"=>"Eternal Sunshine of the Spotless Mind", "price"=>"3"}
+    return results.map{|film| Film.new(film)}
   end
+
 
 
 
