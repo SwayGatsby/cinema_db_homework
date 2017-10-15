@@ -82,4 +82,9 @@ class Customer
     return @funds
   end
 
+  def number_of_tickets()
+    num_of_tickets = self.films().length()
+    return num_of_tickets
+  end
+
 end

@@ -93,5 +93,8 @@ puts "Funds pre purchase: #{customer_1.funds}"
 customer_1.purchase_ticket_for(film_2)
 puts "Funds post purchase: #{customer_1.funds}"
 
+
+puts "Customer 1 tickets purchased: #{customer_1.number_of_tickets}"
+
 binding.pry
 nil
