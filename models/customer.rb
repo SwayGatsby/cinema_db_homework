@@ -78,6 +78,8 @@ class Customer
 
   def purchase_ticket_for(film)
     @funds -= film.price
+    self.update()
+    return @funds
   end
 
 end

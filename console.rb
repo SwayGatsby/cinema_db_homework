@@ -89,8 +89,9 @@ for customer in film_customers
   puts "Customer Funds: #{customer.funds.to_i()}"
 end
 
-
-puts "Customer's updated funds: #{customer_1.purchase_ticket_for(film_2)}"
+puts "Funds pre purchase: #{customer_1.funds}"
+customer_1.purchase_ticket_for(film_2)
+puts "Funds post purchase: #{customer_1.funds}"
 
 binding.pry
 nil
